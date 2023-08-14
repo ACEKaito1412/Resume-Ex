@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main
+{% endblock %}
+
+{% block main %}
+    <div id="Home" class="container-fluid bg-1"
+    style="
+    height: 100vh;
+    background-image: url('static/bg-2.jpg');
+    background-size: cover; /* Optional: Adjust the background image size to cover the entire container */
+    position: relative;
+    ">
+    <h1 style="
+            text-align: right;
+            color: white;
+            font-size: 7rem; /* Adjust the font size as needed */
+            position: absolute;
+            font-weight: bolder;
+            top: 30%;
+            right: 20%; /* Adjust the left position as needed to center the text */
+            width: 400px;
+        ">Make It Easy!</h1>
+    </div>
+
+    <div id="About" class="d-flex justify-content-center align-items-center" style="width: 100%; background-color: black;">
+        <div class="row p-5 text-light" style="width: 60%;" >
+          <h1>About Resume-Ex</h1>
+          <p>Welcome to Resume-Ex, the innovative Resume Extractor that puts the power in your hands. Our mission is to make extracting essential information from resumes in PDF format a breeze, giving you the flexibility to choose between two powerful features: Spacy-based NER (Named Entity Recognition) and the OpenAI API.</p>
+          <h4>1. Spacy-Based NER:</h4>
+          <p>With our Spacy-based NER feature, we have meticulously trained a specialized model to recognize and extract specific entities from resumes, but still not so accurate for now. This includes identifying and categorizing crucial details such as names, skills, and other pertinent information. Our NER model boasts impressive accuracy, streamlining the extraction process and saving you valuable time.</p>
+          <h4>2. OpenAI API Integration:</h4>
+          <p>For those seeking advanced language comprehension and contextually relevant data retrieval, our GPT-3 API integration is the answer. By leveraging the capabilities of OpenAI's GPT-3, we have unlocked the power of deep learning to enhance your experience. The GPT-3 model understands the context of the extracted data, making information retrieval even more precise and meaningful.</p>
+        </div>
+    </div>
+
+    <div id="Features" class="container-fluid bg-1"
+          style="
+            height: 100vh;
+            background-color: dark;
+            ">
+            <div class="row h-100">
+              <div class="col-sm-6 d-flex justify-content-center align-items-center" style="height:100vh; background-color: black;">
+                <!-- Content for the left half (colored blue) -->
+
+                <div class="card" style = "width: 60%; border-radius: 20px; overflow: hidden; margin-top: 10%;">
+                  <img src="static/backgrounf.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Pre-Trained NER Model</h5>
+                    <ul>
+                      <li>Low Accuracy</li>
+                      <li>Only Trained on Particular Format of Resume</li>
+                      <li>You don't have to worry bout payment</li>
+                      <li>You can train one yourself</li>
+                    </ul>
+                    <br>
+                    <a class="btn btn-primary" href="upload_resume?method=0" role="button" style="width: 140px;">Link</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 d-flex justify-content-center align-items-start" style="height:100vh;">
+                <!-- Content for the right half (colored yellow) -->
+                <div class="card" style = "width: 60%; border-radius: 20px; overflow: hidden; margin-top: 10%;">
+                  <img src="static/backgrounf.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">OpenAI Model</h5>
+                    <ul>
+                      <li>High Accuracy.</li>
+                      <li>You can put any format of resume.</li>
+                      <li>You have to check for your API credits.</li>
+                      <li>You can change the prompt for changes.</li>
+                    </ul>
+                    <br>
+                    <a class="btn btn-primary" href="upload_resume?method=1" role="button" style="width: 140px;">Link</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+{% endblock %}

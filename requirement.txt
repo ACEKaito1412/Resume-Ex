@@ -1,0 +1,6 @@
+spacy==3.6.0
+spacy-transformer==1.2.5
+pypdf2==3.0.1
+flask==2.3.2
+openai==0.27.8
+cs50
