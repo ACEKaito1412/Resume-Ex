@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Upload
+{% endblock %}
+
+{% block main %}
+  {% if method == '0' %}
+  <h1 class="p-2">Spacy NLP Trained Model</h1>
+  {% else %}
+  <h1 class="p-2">GPT API</h1>
+  {% endif %}
+  <h2 class="p-4">Upload a Resume</h2>
+  <form method="post" enctype="multipart/form-data">
+
+  {% if method == '0' %}
+  <input type="text" name="method" value="0" hidden>
+  {% else %}
+  <input type="text" name="method" value="1" hidden>
+  {% endif %}
+
+  <input type="file" name="resume" accept=".pdf">
+  <input type="submit" value="Upload">
+  </form>
+
+  {% if data %}
+  <hr>
+  <h2>Extracted Text from the PDF:</h2>
+  <ul>
+      {% for item in data %}
+      <li>{{ item }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+{% endblock %}
+

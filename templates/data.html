@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main
+{% endblock %}
+
+{% block main %}
+<h1 class="p-2">Extracted Data From Uploaded File </h1>
+<table id="table" class="display text-left" style="width:100%;">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Resume</th>
+            <th>Annotation</th>
+        </tr>
+    </thead>
+    <tbody >
+        {% for item in data %}
+            <tr>
+                <td>{{ item["id"] }}</td>
+                <td>{{ item["type"] }}</td>
+                <td><p style="overflow-y: hidden; max-height: 40px">{{ item["resume"] }}</p></td>
+                <td><p style="overflow-y: hidden; max-height: 40px">{{ item["annotation"] }}</p></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

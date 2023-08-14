@@ -1,0 +1,14 @@
+data and ideas for resume extractor get from this link: https://www.romanshilpakar.com.np/blog/6
+	* https://www.youtube.com/watch?v=C23DAW5iSiA
+reference for chat completions: https://platform.openai.com/docs/api-reference/completions
+
+# Create A 3 Minute Long Video
+	Video should include:
+		Project Title
+		My Name
+		City and Country
+	Submit the form
+
+# Create A Readme.md
+
+
