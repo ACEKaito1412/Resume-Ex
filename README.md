@@ -1,6 +1,6 @@
 # RESUME-EXTRACTOR
 
-![Project Title](./static/logo-2.png)
+![Project Title](./static/logo-dark.png)
 
 ## Description
 
@@ -105,7 +105,7 @@ For any questions or inquiries about the Resume-Ex project, please contact [Jhun
 
 ## Reference
 
-Here are my reference for this project:
+Here are my reference for this project please check the blog bellow if you wanted to create your custom NER:
 
 - [`Build Resume Parser using Spacy Version 3`](https://www.youtube.com/watch?v=C23DAW5iSiA)
 - [`Blog On Resume Parser`](https://www.romanshilpakar.com.np/blog/6)
