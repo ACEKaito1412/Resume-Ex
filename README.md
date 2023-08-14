@@ -74,9 +74,9 @@ We welcome contributions to enhance Resume-Ex. To contribute:
 
 ## License
 
-The software is released under the Un-License.
+The software is released under the UnLicense.
 
-UN-LICENSE
+UNLICENSE
 
 This is free and unencumbered software released into the public domain.
 
