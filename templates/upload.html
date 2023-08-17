@@ -26,11 +26,13 @@
   {% if data %}
   <hr>
   <h2>Extracted Text from the PDF:</h2>
-  <ul>
+  <div class="">
       {% for item in data %}
-      <li>{{ item }}</li>
+      <div>
+        <p class="rounded border text-center d-inline">{{ item }}</p>
+      </div>
       {% endfor %}
-  </ul>
+  </div>
   {% endif %}
 {% endblock %}
 

@@ -1,7 +1,7 @@
 import openai, json
 
 # Save Key
-API_KEY = "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"
+API_KEY = "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"
 openai.api_key = API_KEY
 
 # Ready Customize Prompt

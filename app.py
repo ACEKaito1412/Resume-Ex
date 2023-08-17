@@ -1,4 +1,4 @@
-import PyPDF2, spacy, openai, ast
+import PyPDF2, spacy, openai, ast, random
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request
 
@@ -6,7 +6,7 @@ from flask import Flask, flash, redirect, render_template, request
 nlp = spacy.load("./model-best")
 
 # Load OpenAi Key
-API_KEY = "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"
+API_KEY = "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"
 openai.api_key = API_KEY
 
 # Configure application
@@ -129,9 +129,6 @@ def gptMode(resume):
     message_content = response['choices'][0]['message']['content']
 
     # Save the data as list
-    try:
-        data = ast.literal_eval(message_content)
-    except Exception as e:
-        data = [["No Data Found", "Error Occured"]]
+    data = ast.literal_eval(message_content)
     
     return data
