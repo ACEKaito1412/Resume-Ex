@@ -43,7 +43,7 @@ This project offers two feature for extracting information from resume that is u
 
 ### Installation
 
-1. Get this link and clone repository : git clone https://
+1. Get this link and clone repository : git clone `https://github.com/ACEKaito1412/Resume-Ex.git`
 2. Create new environment using pyenv make sure to install python version 3.10.11
 3. Activate the environment
 4. Install requirement.txt
