@@ -12,11 +12,17 @@ The repository includes separate directories where u can train new model and run
   
 - `Web-Application`: Contains the code and instructions for the web-application.
 
+## Video Links
 
+#### [`CS50 Project: Resume-Ex Presentation`](https://youtu.be/VEZghCH6xw0)
+#### [`CS50 Project: Resume-Ex Web-View`](https://youtu.be/cUWfLBwUkP0)
 
 ## Table of Contents
 - [RESUME-EXTRACTOR](#resume-extractor)
   - [Description](#description)
+  - [Video Links](#video-links)
+      - [`CS50 Project: Resume-Ex Presentation`](#cs50-project-resume-ex-presentation)
+      - [`CS50 Project: Resume-Ex Web-View`](#cs50-project-resume-ex-web-view)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Getting Started](#getting-started)
