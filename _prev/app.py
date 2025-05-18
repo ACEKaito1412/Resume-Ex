@@ -6,7 +6,7 @@ from flask import Flask, flash, redirect, render_template, request
 nlp = spacy.load("./model-best")
 
 # Load OpenAi Key
-API_KEY = "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"
+API_KEY = "secret-openai-key"
 openai.api_key = API_KEY
 
 # Configure application
