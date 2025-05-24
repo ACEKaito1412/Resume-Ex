@@ -1,16 +1,18 @@
 from llama_cpp import Llama
-import re
+import re, os
+from typing import Optional
 
-
-def extract_json_string_from_response(response: str) -> str | None:
+def extract_json_string_from_response(response: str) -> Optional[str]:
     # Match the first valid-looking JSON block
     match = re.search(r'\{(?:[^{}]|(?R))*\}', response, re.DOTALL)
-
     if match:
         return match.group(0).strip()
     else:
         return None
 
+def read_file(path: str) -> str:
+   with open(path, mode='r', encoding='utf-8') as file:
+      return file.read().strip() 
 
 class ModelExtractor:
   def __init__(self, model_path:str, max_ctx = 2048, threads = 8, gpu_layers = 0):
@@ -20,43 +22,19 @@ class ModelExtractor:
                 n_threads=threads,
                 n_gpu_layers=0
                 )
+    
+     # load_promt
+     base_path = os.path.join(os.path.dirname(__file__), "../prompts")
+     self.format_text = read_file(os.path.join(base_path, "format.txt"))
+     self.task_text = read_file(os.path.join(base_path, "task.txt"))
      
   def extract(self, resume:str)->str:
-    prompt_resume = f"<resume>{resume}</resume>"
-    prompt = prompt_resume + """
-            <format>
-            {
-            "Basic Information": {
-            "Name": "",
-            "Contact": {
-            "Email": "",
-            "Phone": "",
-            "Location": ""
-            }
-            },
-            "Work Experience": {
-            "Jobs": [
-            {
-            "Company": "",
-            "Position": "",
-            "Dates": "",
-            "Responsibilities": [
-            "",
-            . . .
-            ]
-            },
-            . . .
-            ]
-            },
-            Skills": ["", . . . ],
-            "Spoken Languages": ["", . . . ],
-            "Summary" :  " .. your summary here"
-            }
-            </format>
-            <task>
-            extract resume data using this specified format, if some info is not found just put 'NA', identify skills yourself base on the whole resume not just the skill section and separate each skill  and also create a one sentences summary of the applicant:
-            </task>
-            """
+    prompt = (
+       f"<resume>{resume}</resume>"
+       f"<format>{self.format_text}</format>"
+       f"<task>{self.task_text}</task>"
+    )
+
     messages = [
       {
         "role": "user",

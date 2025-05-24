@@ -1,0 +1,27 @@
+{
+  "Basic Information": {
+    "Name": "",
+    "Contact": {
+      "Email": "",
+      "Phone": "",
+      "Location": ""
+    }
+  },
+  "Work Experience": {
+    "Jobs": [
+      {
+        "Company": "",
+        "Position": "",
+        "Dates": "",
+        "Responsibilities": [
+          "",
+          ". . ."
+        ]
+      },
+      ". . ."
+    ]
+  },
+  "Skills": ["", ". . ."],
+  "Spoken Languages": ["", ". . ."],
+  "Summary": " .. your summary here"
+}

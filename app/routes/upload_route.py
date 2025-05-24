@@ -1,8 +1,8 @@
 from flask import Flask, Blueprint, request, jsonify, render_template
 from app.services.file_service import ALLOWED_FILES, save_document, allowed_file
 from app.services.file_service import get_text_from_docx, get_text_from_pdf
-upload_bp = Blueprint('upload', __name__)
 
+upload_bp = Blueprint('upload', __name__)
 
 @upload_bp.route('/upload', methods=["POST", "GET"])
 def upload():
