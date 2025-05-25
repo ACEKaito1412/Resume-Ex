@@ -1,9 +1,10 @@
 from flask import Blueprint, request, jsonify
 from app.services.file_service import process_data
+from app.services.resume_extractor import ModelExtractor
 
 service_extractor = None
 
-def init_analyze_route(extractor):
+def init_analyze_route(extractor:ModelExtractor):
     global service_extractor
     service_extractor = extractor
 
@@ -28,5 +29,5 @@ def analyze():
     print(result)
     parsed_result = process_data(resume_text)
 
-    return jsonify({"message": "Text analyzed", "data" : parsed_result})
+    return jsonify({"message": "Text analyzed", "data" : result})
 

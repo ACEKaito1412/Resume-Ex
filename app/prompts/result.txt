@@ -1,0 +1,51 @@
+<think>
+Okay, let's start by understanding the user's request. They want me to extract resume data in a specific format and identify skills based on the provided resume. The task is to extract basic information like name, contact details, work experience, skills, spoken languages, and then create a summary.
+
+First, I need to parse the given resume text into structured data. The user provided the resume as a string, so I'll use Python's json module to convert it into JSON format. Each section of the resume should be mapped to the required fields in the output structure.
+
+Looking at the resume, the Basic Information section includes Name, Email, Phone, and Location. From the text, those are jhuncarlomacdon@gmail.com, 09774249341, and Cavite Philippines. So I'll extract these details directly.
+
+Work Experience has two jobs: Intelligent Touch Corporation and Philippine Human Resource. Each job has dates (May 2024 to May 2026) and responsibilities. The responsibilities mention using Entity Framework Core for deployment and fixing bugs with PostMan. For the second job, enhancing an in-house web app system and creating a data dashboard using SQL functions.
+
+Skills are listed as .Net Framework, C#, SQL, PHP, Python, Git, Android App Development, Java, Machine Learning. I need to separate each skill into a list and create a summary based on the resume. The summary should mention experience in software development with specific technologies and projects like the Filipino Sign Recognition app.
+
+I need to make sure that all the information is correctly extracted without any errors. Once the data is structured properly, I can format it into the required JSON output as specified.
+</think>
+
+```json
+{
+  "Basic Information": {
+    "Name": "Jhun Carlo Macdon",
+    "Contact": {
+      "Email": "jhuncarlomacdon@gmail.com",
+      "Phone": "09774249341",
+      "Location": "Cavite Philippines"
+    }
+  },
+  "Work Experience": [
+    {
+      "Company": "Intelligent Touch Corporation",
+      "Position": "Software Developer",
+      "Dates": "May 2024 - May 2026",
+      "Responsibilities": [
+        "Deployment of application service using Entity Framework Core",
+        "Updating and fixing bugs on server response from API calls using PostMan"
+      ]
+    },
+    {
+      "Company": "Philippine Human Resource",
+      "Position": "Web Developer Intern",
+      "Dates": "April 2023 - July 2023",
+      "Responsibilities": [
+        "Enhance the company's in-house web application system using PHP",
+        "Collaborated on creation of data dashboard using SQL functions"
+      ]
+    }
+  ],
+  "Skills": [
+    ".Net Framework, C#, SQL, PHP, Python, Git",
+    "Android App Development, Java, Machine Learning"
+  ],
+  "Summary": "1 year in software development with expertise in .NET, C#, SQL, and web technologies. Experience in Android app development, data analysis using SQL, and project management for kitchen equipment systems."
+}
+```

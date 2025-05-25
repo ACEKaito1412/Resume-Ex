@@ -1,5 +1,5 @@
 from flask import Flask
-from app.routes.upload_route import upload_bp
+from app.routes.upload_route import upload_bp, init_upload_route
 from app.routes.analyze_route import analyze_bp, init_analyze_route
 from app.services.file_service import save_document
 from app.services.resume_extractor import ModelExtractor
@@ -11,6 +11,7 @@ service_extractor = ModelExtractor(model_path=model_path)
 
 
 init_analyze_route(service_extractor)
+init_upload_route(service_extractor)
 
 
 app = Flask(__name__, template_folder='app/templates')

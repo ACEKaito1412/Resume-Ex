@@ -7,7 +7,7 @@
       "Location": ""
     }
   },
-  "Work Experience": {
+  "Work Experience": [
     "Jobs": [
       {
         "Company": "",
@@ -20,7 +20,7 @@
       },
       ". . ."
     ]
-  },
+  ],
   "Skills": ["", ". . ."],
   "Spoken Languages": ["", ". . ."],
   "Summary": " .. your summary here"
