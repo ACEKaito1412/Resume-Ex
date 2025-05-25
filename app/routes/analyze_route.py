@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.services.file_service import process_data
 from app.services.resume_extractor import ModelExtractor
+from app.utils.auth import require_token
 
 service_extractor = None
 
@@ -11,6 +12,7 @@ def init_analyze_route(extractor:ModelExtractor):
 analyze_bp = Blueprint('analyze', __name__)
 
 @analyze_bp.route('/analyze', methods=['POST'])
+@require_token
 def analyze():
     """
     input_type:  application/json \n
