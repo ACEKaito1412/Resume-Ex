@@ -4,22 +4,26 @@ This document outlines the 10-step plan for upgrading the Resume-Ex project into
 
 ---
 
-## 1. Project Structure Setup
-
+## 1. Project Structure Setup - DONE
+ 
 **Goal:** Prepare a modular Flask project environment.
 
 **Substeps:**
 
-* Create a virtual environment: `python -m venv venv`
-* Install dependencies: `pip install Flask python-docx PyMuPDF`
-* Directory layout:
+- [x] Create a virtual environment: `python -m venv venv`
+- [x] Install dependencies: `pip install Flask python-docx PyMuPDF`
+- [x] Directory layout:
 
   ```
   /app
+    /model
+    /prompts
     /routes
     /services
+    /template
     /utils
-    /models
+  /extensions
+  /instance
   main.py
   requirements.txt
   .env
@@ -27,54 +31,54 @@ This document outlines the 10-step plan for upgrading the Resume-Ex project into
 
 ---
 
-## 2. Flask API Boilerplate
+## 2. Flask API Boilerplate - DONE
 
 **Goal:** Implement the main API route for file upload.
 
 **Substeps:**
 
-* Define a `/upload` POST route
-* Accept `multipart/form-data`
-* Save the file temporarily
-* Return a dummy JSON response for now
+- [x] Define a `/upload` POST route
+- [x] Accept `multipart/form-data`
+- [x] Save the file temporarily
+- [x] Return a dummy JSON response for now
 
 ---
 
-## 3. File Parsing Logic
+## 3. File Parsing Logic - DONE
 
 **Goal:** Extract resume text from PDF or DOCX.
 
 **Substeps:**
 
-* Use `fitz` for PDFs
-* Use `python-docx` for Word documents
-* Auto-detect file extension and use the appropriate parser
-* Return cleaned text
+- [x] Use `fitz` for PDFs
+- [x] Use `python-docx` for Word documents
+- [x] Auto-detect file extension and use the appropriate parser
+- [x] Return cleaned text
 
 ---
 
-## 4. Integrate Lightweight NLP Model
+## 4. Integrate Lightweight NLP Model - DONE
 
 **Goal:** Process extracted text using a local model.
 
 **Substeps:**
 
-* Load a model from LM Studio, GPT4All, or Ollama
-* Create a prompt template: "Extract Name, Email, Skills..."
-* Parse model output into structured JSON
+- [x] Load a model from LM Studio, GPT4All, or Ollama
+- [x] Create a prompt template: "Extract Name, Email, Skills..."
+- [x] Parse model output into structured JSON
 
 ---
 
-## 5. Implement Authentication
+## 5. Implement Authentication - DONE
 
 **Goal:** Allow only authorized users to access the API.
 
 **Substeps:**
 
-* Token-based authentication
-* Store users and tokens in SQLite or JSON
-* Middleware for token verification
-* Return 401 Unauthorized for invalid tokens
+- [x] Token-based authentication
+- [x] Store users and tokens in SQLite or JSON
+- [x] Middleware for token verification
+- [x] Return 401 Unauthorized for invalid tokens
 
 ---
 
@@ -84,14 +88,14 @@ This document outlines the 10-step plan for upgrading the Resume-Ex project into
 
 **Substeps:**
 
-* Use Flask-Limiter for rate control
-* Enforce file size limits
-* Validate file MIME types
-* Sanitize filenames
+- [ ] Use Flask-Limiter for rate control
+- [ ] Enforce file size limits
+- [x] Validate file MIME types
+- [x] Sanitize filenames
 
 ---
 
-## 7. Return Structured JSON
+## 7. Return Structured JSON - DONE
 
 **Goal:** Deliver a clean, parseable JSON result.
 
