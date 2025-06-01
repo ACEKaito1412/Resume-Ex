@@ -1,15 +1,10 @@
 from functools import wraps
 from flask import request, jsonify
-
-
-# testing
-VALID_TOKENS = ['insecure_auth_token_1', 'insecure_auth_token_2']
+from app import db
+from app.model.user_model import User
 
 def is_authorized(token:str)->bool:
-    print(token)
-    print(VALID_TOKENS[0])
-    return token in VALID_TOKENS
-
+    return User.query.filter_by(token=token).first() is not None
 
 def require_token(f):
 
@@ -25,3 +20,4 @@ def require_token(f):
         return f(*args, **kwargs)
     
     return decorated
+

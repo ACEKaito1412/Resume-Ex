@@ -2,7 +2,7 @@ from flask import Flask
 from extensions.db import db
 from app.routes.upload_route import upload_bp, init_upload_route
 from app.routes.analyze_route import analyze_bp, init_analyze_route
-from app.services.file_service import save_document
+from app.routes.register_route import register_bp
 from app.services.resume_extractor import ModelExtractor
 import os
 
@@ -26,5 +26,6 @@ def create_app():
     # BLUEPRINT
     app.register_blueprint(upload_bp)
     app.register_blueprint(analyze_bp)
+    app.register_blueprint(register_bp)
 
     return app
