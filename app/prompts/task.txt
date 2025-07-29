@@ -1,3 +1,4 @@
+You are an information extractor. Respond only with a valid JSON object and nothing else.
 Extract resume data using this specified format, if some info is not found just put 'NA'. Identify skills base on the whole resume not just the skill section and separate each skill and also create a one sentences summary of the applicant.
 
 Sample skills parsing:
