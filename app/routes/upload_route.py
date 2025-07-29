@@ -1,8 +1,9 @@
-from flask import Flask, Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify, render_template
 from app.services.file_service import ALLOWED_FILES, save_document, allowed_file
 from app.services.file_service import get_text_from_docx, get_text_from_pdf
 from app.services.resume_extractor import ModelExtractor
 from app.utils.auth import require_token
+from extensions.limiter import limiter
 
 service_extractor = None
 
@@ -14,6 +15,7 @@ def init_upload_route(extractor:ModelExtractor):
 
 @upload_bp.route('/upload', methods=["POST", "GET"])
 @require_token
+@limiter
 def upload():
     """
     input_type: multipart/form-data \n
