@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% block content %}
+    <section id="documentation">
+      <div class="sidebar">
+        <h2>API Contents</h2>
+        <ul>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#authentication">Authentication</a></li>
+          <li>
+            <a href="#endpoint">Endpoints</a>
+            <ul class="dropdown">
+              <li><a href="#register">Register</a></li>
+              <li><a href="#analyze">Analyze</a></li>
+              <li><a href="#upload">Upload</a></li>
+            </ul>
+          </li>
+          <li><a href="#errors">Errors</a></li>
+        </ul>
+      </div>
+
+      <div class="main-content">
+        <div class="content" id="introduction">
+          <h2>Introduction</h2>
+          <p>
+            Welcome to the <strong>ResumEx API</strong> — a simple and efficient
+            API designed to streamline the process of resume parsing and
+            analysis. Whether you're building a recruitment platform, an HR
+            automation tool, or just looking to simplify resume data extraction,
+            ResumEx offers a powerful solution using AI models.
+          </p>
+          <p>
+            With just a few endpoints, developers can easily register users,
+            authenticate with token-based security, and extract key resume
+            information like names, emails, education, experience, and skills
+            using raw text or uploaded files.
+          </p>
+          <p>
+            ResumEx is built with flexibility in mind and can integrate
+            seamlessly into existing systems. Start by registering your account
+            to receive a token, then use it to access the secure endpoints for
+            analyzing or uploading resumes.
+          </p>
+        </div>
+
+        <div class="content" id="authentication">
+          <h2>Authentication</h2>
+          <p>
+            The ResumEx API uses Bearer tokens for authenticating requests. You
+            can get your token by registering your email and password through
+            the <strong>/register</strong> endpoint.
+          </p>
+          <h4>Authorization Header Example</h4>
+          <pre><code>Authorization: Bearer YOUR_ACCESS_TOKEN</code></pre>
+          <p>
+            Use this token for accessing protected endpoints like
+            <strong>/analyze</strong> and <strong>/upload</strong>.
+          </p>
+        </div>
+
+        <div class="content" id="endpoint">
+          <h2>Endpoints</h2>
+          <p>
+            ResumEx offers three main endpoints: <strong>Register</strong>,
+            <strong>Analyze</strong>, and <strong>Upload</strong>.
+          </p>
+
+          <div class="c-content" id="register">
+            <h3>Register</h3>
+            <p>
+              Create a new user and receive a Bearer token for authentication.
+            </p>
+            <h4>POST /register</h4>
+            <p><strong>Request Body:</strong></p>
+            <pre><code>{
+  "username": "your_email",
+  "password": "your_password"
+}</code></pre>
+            <h4>Response:</h4>
+            <pre><code>{
+  "message": "User created",
+  "Token": "YOUR_ACCESS_TOKEN"
+}</code></pre>
+          </div>
+
+          <div class="c-content" id="analyze">
+            <h3>Analyze</h3>
+            <p>Send raw resume text and receive structured resume data.</p>
+            <h4>POST /analyze</h4>
+            <p><strong>Headers:</strong></p>
+            <pre><code>Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json</code></pre>
+            <p><strong>Request Body:</strong></p>
+            <pre><code>{
+  "text": "John Doe\nEmail: john@example.com\nExperience: Software Engineer at Acme Inc..."
+}</code></pre>
+            <h4>Response:</h4>
+            <pre><code>{
+  "message": "Text analyzed",
+  "data": {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "skills": ["Python", "Flask", "Machine Learning"]
+  }
+}</code></pre>
+          </div>
+
+          <div class="c-content" id="upload">
+            <h3>Upload</h3>
+            <p>
+              Upload a `.pdf` or `.docx` resume file to extract and analyze
+              content.
+            </p>
+            <h4>POST /upload</h4>
+            <p><strong>Headers:</strong></p>
+            <pre><code>Authorization: Bearer YOUR_ACCESS_TOKEN</code></pre>
+            <p><strong>Form Data:</strong></p>
+            <ul>
+              <li><code>file</code>: Upload your resume file</li>
+              <li>
+                <code>file_type</code>: <code>pdf</code> or <code>docx</code>
+              </li>
+            </ul>
+            <h4>Response:</h4>
+            <pre><code>{
+  "message": "resume analyzed",
+  "data": {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "experience": [...]
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="content" id="errors">
+          <h2>Errors</h2>
+          <p>
+            The API uses standard HTTP response codes to indicate success or
+            failure.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Message</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>400</td>
+                <td>Missing fields / Invalid input</td>
+                <td>The request body is incomplete or malformed.</td>
+              </tr>
+              <tr>
+                <td>401</td>
+                <td>Unauthorized</td>
+                <td>The token is missing or invalid.</td>
+              </tr>
+              <tr>
+                <td>500</td>
+                <td>Internal Server Error</td>
+                <td>Something went wrong on the server.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+{% endblock %}

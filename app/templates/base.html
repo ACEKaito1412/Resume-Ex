@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <section id="nav">
+      <nav>
+        <h2 ><a href="{{ url_for('home.home')}}">ResumEx</a></h2>
+        <div class="links">
+          <a href="{{ url_for('documentation.documentation') }}">Docs</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+      </nav>
+    </section>
+    {% block content %} {% endblock %}
+    <section id="footer">
+        <div>
+            <p>ResumEx</p>
+            <div>
+                <div style="width: 15px; height: 15px;  margin-right: 10px; border-radius: 20px; background-color: red;"></div>
+                <div style="width: 15px; height: 15px;  margin-right: 10px; border-radius: 20px; background-color: green;"></div>
+                <div style="width: 15px; height: 15px;  margin-right: 10px; border-radius: 20px; background-color: blue;"></div>
+            </div>
+        </div>
+        <div>
+            <div style="position: relative; display: flex; align-items: center;">
+              <input type="email" placeholder="Enter your Email"> 
+              <div id="btn_subscribe">Subscribe</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 12px; font-weight: lighter; text-align: right;">All Rights Reserved, 2027 ResumEx</p>
+        </div>
+    </section>
+  </body>
+</html>

@@ -14,7 +14,7 @@ analyze_bp = Blueprint('analyze', __name__)
 
 @analyze_bp.route('/analyze', methods=['POST'])
 @require_token
-@limiter
+@limiter.limit("5 per minute")
 def analyze():
     """
     input_type:  application/json \n

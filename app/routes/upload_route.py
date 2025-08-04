@@ -15,7 +15,7 @@ def init_upload_route(extractor:ModelExtractor):
 
 @upload_bp.route('/upload', methods=["POST", "GET"])
 @require_token
-@limiter
+@limiter.limit("5 per minute")
 def upload():
     """
     input_type: multipart/form-data \n
