@@ -82,14 +82,14 @@ This document outlines the 10-step plan for upgrading the Resume-Ex project into
 
 ---
 
-## 6. Add Security & Rate Limiting
+## 6. Add Security & Rate Limiting - DONE
 
 **Goal:** Ensure API reliability and safety.
 
 **Substeps:**
 
-- [ ] Use Flask-Limiter for rate control
-- [ ] Enforce file size limits
+- [X] Use Flask-Limiter for rate control
+- [X] Enforce file size limits
 - [x] Validate file MIME types
 - [x] Sanitize filenames
 
@@ -120,10 +120,10 @@ This document outlines the 10-step plan for upgrading the Resume-Ex project into
 
 **Substeps:**
 
-* Flask + Jinja2 interface
-* Admin login route
-* View logs and registered users
-* Manually issue API keys
+- [ ] Flask + Jinja2 interface
+- [ ] Admin login route
+- [ ] View logs and registered users
+- [ ] Manually issue API keys
 
 ---
 
@@ -136,11 +136,10 @@ This document outlines the 10-step plan for upgrading the Resume-Ex project into
 * Write a `README.md` or full developer doc
 * Include:
 
-  * Overview
-  * Authentication
-  * Endpoints
-  * Example requests (curl/Postman)
-* Optional: Swagger UI or OpenAPI schema
+- [X] Overview
+- [X] Authentication
+- [X] Endpoints
+- [ ] Example requests (curl/Postman)
 
 ---
 
